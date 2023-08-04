@@ -1,0 +1,19 @@
+# docker stop chaincue-hello-world && docker rm chaincue-hello-world && docker rmi chaincue-hello-world && docker build -t chaincue-hello-world . && docker-compose up
+# docker build -t hello-world .
+# docker-compose up
+# docker exec -it hello-world sh
+version: "3.7"
+
+services:
+  chainbot:
+    container_name: chaincue-hello-world
+    image: hello-world:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - chaincue-tech-net
+
+networks:
+  chaincue-tech-net:
+    name: chaincue-tech-net
+    driver: bridge
